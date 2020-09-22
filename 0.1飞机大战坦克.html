@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .root{
+            width: 500px;
+            height: 500px;
+            border: 1px solid blue;
+            position: relative;
+        }
+        .player{
+            width: 60px;
+            height: 60px;
+            border: 1px solid red;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<script>
+    window.onload=()=>{
+        let speed=1
+        let player = document.querySelector('.player')
+        window.onkeydown=(e)=>{
+            let left = parseInt(window.getComputedStyle(player,null).left)
+            let top = parseInt(window.getComputedStyle(player,null).top)
+            if(e.shiftKey==true){
+                speed=10;
+            }
+            if(e.keyCode==37&&left>0){
+                player.style.left = left - speed + 'px'
+            }
+            if(e.keyCode==38&&top>0){
+                player.style.top = top - speed + 'px'
+            }
+            if(e.keyCode==39&&left<438){
+                player.style.left = left + speed + 'px'
+            }
+            if(e.keyCode==40&&top<439){
+                player.style.top = top + speed + 'px'
+            }
+        }
+        onkeyup=(e)=>{
+            if(e.shiftKey==true){
+                speed=1;
+                // console.log('减速')
+            }
+        }
+    }
+</script>
+<body>
+    <div class="root">
+        <div class="player"></div>
+    </div>
+</body>
+
+</html>

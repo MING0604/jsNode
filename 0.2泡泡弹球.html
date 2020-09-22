@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .root{
+            width: 500px;
+            height: 500px;
+            border: 1px solid blue;
+            position: relative;
+        }
+        .player{
+            width: 60px;
+            height: 60px;
+            border: 1px solid red;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<script>
+    window.onload=()=>{
+        let player = document.querySelector('.player')
+        let speedx=1.5;
+        let speedy=1;
+        setInterval(() => {
+            player.style.top = player.offsetTop + speedy + 'px'
+            player.style.left = player.offsetLeft + speedx + 'px'
+            if(player.offsetTop>=500-60||player.offsetTop<=0){
+                speedy*=-1
+            }
+            if(player.offsetLeft>=500-60||player.offsetLeft<=0){
+                speedx*=-1
+            }
+        }, 2);
+    }
+</script>
+<body>
+    <div class="root">
+        <div class="player"></div>
+    </div>
+</body>
+
+</html>

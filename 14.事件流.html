@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+    <a href="0.2泡泡弹球.html">跳转</a>
+</body>
+<script>
+    let box1 = document.querySelector('.box1')
+    let box2 = document.querySelector('.box2')
+    let box3 = document.querySelector('.box3')
+    let a = document.querySelector('a')
+
+    a.addEventListener('click',(e)=>{
+        let flag = window.confirm('您是是否要进行跳转？跳转后将不可返回')
+        // 阻止默认行为
+        e.preventDefault()
+        flag && window.location.replace('0.2泡泡弹球.html')
+    },false)
+    box1.addEventListener('click',(e)=>{
+        console.log('box1')
+        // 阻止冒泡
+        e.stopPropagation()
+    },false)
+    box2.addEventListener('click',()=>{
+        console.log('box2')
+    },false)
+    box3.addEventListener('click',()=>{
+        console.log('box3')
+    },false)
+</script>
+</html>
